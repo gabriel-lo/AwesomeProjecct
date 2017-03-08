@@ -107,7 +107,7 @@ android {
         }
 
         releaseSigningConfig {
-            storeFile rootProject.file("my-release-key.keystore")
+            storeFile rootProject.file("app/my-release-key.keystore")
             storePassword System.getProperty("MOBILECENTER_KEYSTORE_PASSWORD")
             keyAlias System.getProperty("MOBILECENTER_KEY_ALIAS")
             keyPassword System.getProperty("MOBILECENTER_KEY_PASSWORD")
