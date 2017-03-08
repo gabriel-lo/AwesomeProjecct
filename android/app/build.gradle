@@ -105,6 +105,13 @@ android {
                 keyPassword MYAPP_RELEASE_KEY_PASSWORD
             }
         }
+
+        releaseSigningConfig {
+            storeFile rootProject.file("app/my-release-key.keystore")
+            storePassword System.getProperty("MOBILECENTER_KEYSTORE_PASSWORD")
+            keyAlias System.getProperty("MOBILECENTER_KEY_ALIAS")
+            keyPassword System.getProperty("MOBILECENTER_KEY_PASSWORD")
+        }
     }
     splits {
         abi {
@@ -118,7 +125,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.releaseSigningConfig
         }
     }
     // applicationVariants are e.g. debug, release
