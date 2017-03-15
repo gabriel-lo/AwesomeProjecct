@@ -21,7 +21,7 @@ namespace XamarinUITest_Android_Project
             this.app = app;
         }
 
-        public void ClickTestButton()
+        public void TapTestButton()
         {
             this.app.Tap(this.testButtonLocator);
         }

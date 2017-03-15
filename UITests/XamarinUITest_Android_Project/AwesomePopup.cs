@@ -28,7 +28,7 @@ namespace XamarinUITest_Android_Project
             return this.app.Query(this.messageLocator)?.FirstOrDefault()?.Text;
         }
 
-        public void ClickOK()
+        public void TapOK()
         {
             this.app.Tap(this.okLocator);
         }

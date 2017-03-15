@@ -40,7 +40,7 @@ namespace XamarinUITest_Android_Project
         public void TestAlert()
         {
             AwesomeProjectModel model = new AwesomeProjectModel(this.app);
-            model.ClickTestButton();
+            model.TapTestButton();
 
             AwesomePopup popup = new AwesomePopup(this.app);
             string titleText = popup.GetTitle();
@@ -49,7 +49,28 @@ namespace XamarinUITest_Android_Project
             string messageText = popup.GetMessage();
             Assert.AreEqual("Test alert message", messageText, "The message in the alert box did not have the expected value.");
 
-            popup.ClickOK();
+            popup.TapOK();
+        }
+
+        [Test]
+        public void TestAlertWithScreenshots()
+        {
+            this.app.Screenshot("Launched");
+
+            AwesomeProjectModel model = new AwesomeProjectModel(this.app);
+            model.TapTestButton();
+            this.app.Screenshot("Test button tapped");
+
+            AwesomePopup popup = new AwesomePopup(this.app);
+            string titleText = popup.GetTitle();
+            this.app.Screenshot("Popup opened");
+            Assert.AreEqual("Test Title", titleText, "The title of the alert box did not have the expected value.");
+
+            string messageText = popup.GetMessage();
+            Assert.AreEqual("Test alert message", messageText, "The message in the alert box did not have the expected value.");
+
+            popup.TapOK();
+            this.app.Screenshot("Popup OK button clicked");
         }
 
         [Test]
