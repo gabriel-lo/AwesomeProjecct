@@ -52,6 +52,15 @@ namespace XamarinUITest_Android_Project
             popup.ClickOK();
         }
 
+        [Test]
+        public void ForceFailure()
+        {
+            AwesomeProjectModel model = new AwesomeProjectModel(this.app);
+            string testButtonText = model.GetTestButtonText();
+
+            StringAssert.StartsWith("beginning", testButtonText, "The text of the Test button did not start with the expected value.");
+        }
+
         //[Test]
         public void Repl()
         {

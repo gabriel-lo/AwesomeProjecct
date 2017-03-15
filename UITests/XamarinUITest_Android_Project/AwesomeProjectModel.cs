@@ -23,9 +23,15 @@ namespace XamarinUITest_Android_Project
 
         public void ClickTestButton()
         {
-            this.app.Tap(this.testButtonQuery);
+            this.app.Tap(this.testButtonLocator);
         }
 
-        private Query testButtonQuery = c => c.Id("NoResourceEntry-15");
+        public string GetTestButtonText()
+        {
+            this.app.WaitForElement(this.testButtonLocator);
+            return this.app.Query(this.testButtonLocator)?.FirstOrDefault()?.Text;
+        }
+
+        private Query testButtonLocator = c => c.Id("NoResourceEntry-15");
     }
 }
